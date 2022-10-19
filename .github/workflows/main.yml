@@ -10,7 +10,7 @@ jobs:
         
         - name: Laravel Pint
           id: pint
-          uses: Argavyon/laravel-pint-action@b337dbaf681da2651483e69fab4fcf168537ba35
+          uses: Argavyon/laravel-pint-action@7b0629439cc7fbb69ba61aba1ec86090659d3d77 
           with:
             testMode: true
         
