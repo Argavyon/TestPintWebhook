@@ -1,0 +1,31 @@
+name: PHP Linting Webhook Test
+on: workflow_dispatch
+
+jobs:
+  phplint:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Checkout
+          uses: actions/checkout@v2.5
+        
+        - name: Laravel Pint
+          id: pint
+          uses: aglipanci/laravel-pint-action@1.0.0
+          with:
+            configPath: includes/pint.json
+            test: true
+        
+        - name: Webhook
+          # Commit SHA for v5.3.0
+          # https://github.com/tsickert/discord-webhook/commit/c840d45a03a323fbc3f7507ac7769dbd91bfb164
+          uses: tsickert/discord-webhook@c840d45a03a323fbc3f7507ac7769dbd91bfb164
+          with:
+            webhook-url: ${{ secrets.PintWebhook }}
+            username: Laravel Pint workflow
+            avatar-url: https://avatars.githubusercontent.com/u/958072?s=200&v=4.png
+            embed-title: Code Styling Output
+            embed-url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            embed-description: <pre>${{ join(steps.pint.outputs.*, '\n') }}</pre>
+            embed-author-name: Laravel Pint workflow
+            embed-author-url: https://github.com/NexusClash/Bobcode/actions/workflows/pint.yml
+            embed-author-icon-url: https://avatars.githubusercontent.com/u/958072?s=200&v=4.png
