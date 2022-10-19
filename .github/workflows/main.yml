@@ -10,13 +10,13 @@ jobs:
         
         - name: Laravel Pint
           id: pint
-          uses: Argavyon/laravel-pint-action@090900f5ef44d195982ed3b044b709786d405650
+          uses: Argavyon/laravel-pint-action@b337dbaf681da2651483e69fab4fcf168537ba35
           with:
             testMode: true
         
         - name: Webhook
           # Commit SHA for v5.3.0
-          # https://github.com/tsickert/discord-webhook/commit/b337dbaf681da2651483e69fab4fcf168537ba35
+          # https://github.com/tsickert/discord-webhook/commit/c840d45a03a323fbc3f7507ac7769dbd91bfb164
           uses: tsickert/discord-webhook@c840d45a03a323fbc3f7507ac7769dbd91bfb164
           with:
             webhook-url: ${{ secrets.PintWebhook }}
