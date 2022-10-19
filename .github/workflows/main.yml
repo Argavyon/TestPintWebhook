@@ -24,7 +24,7 @@ jobs:
             avatar-url: https://avatars.githubusercontent.com/u/958072?s=200&v=4.png
             embed-title: Code Styling Output
             embed-url: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            embed-description: <pre>${{ steps.pint.outputs.stdout }}</pre>
+            embed-description: "```${{ steps.pint.outputs.stdout }}```"
             embed-author-name: Laravel Pint workflow
             embed-author-url: https://github.com/NexusClash/Bobcode/actions/workflows/pint.yml
             embed-author-icon-url: https://avatars.githubusercontent.com/u/958072?s=200&v=4.png
