@@ -10,7 +10,7 @@ jobs:
         
         - name: Laravel Pint
           id: pint
-          uses: aglipanci/laravel-pint-action@1.0.0
+          uses: Argavyon/laravel-pint-action@c48626941a1d95abbcd5025439c23bbbc64e2dfd
           with:
             configPath: includes/pint.json
             test: true
